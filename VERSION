@@ -2,5 +2,6 @@
 # Function: the current release version of this layer. Advances only on freeze.
 # 1.0.0 — P8 frozen. Tests pass (7/7).
 # 2.0.0 — store_v2 frozen beside v1. Tests pass (v1 7/7, v2 42/42).
+# 2.1.0 — store_v2_1 over v2 (G1, G2). Tests pass (7/7, 42/42, 13/13).
 
-2.0.0
+2.1.0

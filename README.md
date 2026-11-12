@@ -9,17 +9,19 @@ Function:
     hash and signature decision is made by P4 Ledger v2 itself.
 
 Use:
-    New code imports `store_v2`. `store.py` (v1) is frozen and kept
-    for existing callers (Immutable Rule).
+    New code imports `store_v2_1`. `store_v2.py` (2.0.0) and `store.py`
+    (v1) are frozen and kept for existing callers (Immutable Rule).
 
 Files:
-    store_v2.py / SPEC_V2.md / test_store_v2.py — v2 (current)
+    store_v2_1.py / SPEC_V2_1.md / test_store_v2_1.py — v2.1 (current)
+    store_v2.py / SPEC_V2.md / test_store_v2.py — v2 (frozen)
     store.py    / SPEC.md    / test_store.py    — v1 (frozen)
     V1.sha256   — pins v1 files; test_store_v2 fails if they change
+    V2.sha256   — pins v2 files; test_store_v2_1 fails if they change
 
 Layer:    P8 — Store
 Depends:  P4 Ledger v2 (public API); P1 Envelope v2 via P4
 Consumed: P9 Substrate, SC-OS, The Cockpit
 Licence:  MSL-1.0
 Author:   James Gilbert (Giblets Forge)
-Status:   2.0.0 (frozen)
+Status:   2.1.0 (frozen)

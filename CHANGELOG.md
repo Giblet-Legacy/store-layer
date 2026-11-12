@@ -2,6 +2,29 @@
 
 CHANGELOG.md — build history for P8 Store, latest entry at top.
 
+## [v2.1.0] — 2026-11-12
+
+### Good
+- `store_v2_1.py` added over store_v2 to SPEC_V2_1.md 2.1.0. v1 and v2
+  files untouched (Immutable Rule).
+- G1 fixed: verify_store no longer raises RecursionError on a deeply
+  nested stored record; it returns False (wrong key type still
+  TypeError), as SPEC_V2 §4.7 always promised.
+- G2 fixed: get_by_hash takes `hash` as SPEC_V2 §4.5 names it, so
+  keyword calls work.
+- `V2.sha256` pins store_v2.py, test_store_v2.py and SPEC_V2.md (I6).
+- 13/13 v2.1 tests pass; v2 still 42/42, v1 still 7/7 (62 total).
+
+### Bad
+- Laptop audit of v2.0.0 found G1 and G2 (both shipped in 2.0.0).
+- P4 ledger_v2.verify_ledger has the same RecursionError fault on a
+  deeply nested .jsonl line. Reported in NOTES; P4 not edited here.
+
+### Ugly
+- append_entry on a deeply nested store still raises RecursionError
+  rather than ValueError (store unchanged). Carried to NOTES.
+- store_v2.py header still reads "draft until then"; frozen, left as is.
+
 ## [v2.0.0] — 2026-11-12
 
 ### Good
