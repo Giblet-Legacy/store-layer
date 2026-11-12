@@ -13,7 +13,10 @@ Every file MUST have a top header paragraph explaining its function.
 Every function MUST have a numbered header.
 
 ## P8 Architecture Specifics
-- Depends on `envelope_v2` (P1) and `ledger_v2` (P4).
-- Implements a SQLite ledger mirroring the `.jsonl` format.
+- Current layer is `store_v2.py` (SPEC_V2.md). `store.py` v1 is frozen.
+- v2 depends on `ledger_v2` (P4) public API only. Never import a name
+  starting with `_` from P4. Never hash or sign in P8.
+- P4 v2 is the sole judge of chain, hash, signature and record form.
 - Uses standard library `sqlite3`. No external ORMs.
-- Enforces the same cryptographic chain rules as P4.
+- Sibling layers are resolved from `__file__`, never the CWD.
+- `V1.sha256` pins v1 files. Do not regenerate it.
